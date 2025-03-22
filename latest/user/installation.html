@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,19 +27,19 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=fe5c0044" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/documentation_options.js?v=3ce10a4d"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
@@ -49,10 +49,11 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user/installation';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://linkfrg.github.io/ignis/latest/_static/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
-        DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            true;
         </script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -368,10 +369,14 @@
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="first_widgets.html">First widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using_classes.html">Using Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dynamic_content.html">Dynamic content</a></li>
 <li class="toctree-l1"><a class="reference internal" href="styling.html">Styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="async.html">Asynchronous Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options.html">Options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="expanding_functionality.html">Expanding functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
 </ul>
 </div>
@@ -380,9 +385,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -431,20 +441,69 @@
   <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h1>
 <section id="arch-linux">
-<h2>Arch linux<a class="headerlink" href="#arch-linux" title="Link to this heading">#</a></h2>
+<h2>Arch Linux<a class="headerlink" href="#arch-linux" title="Link to this heading">#</a></h2>
+<p>maintainer: &#64;linkfrg</p>
+<p>Install the package from AUR.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>paru<span class="w"> </span>-S<span class="w"> </span>ignis
+</pre></div>
+</div>
+<p>For the latest (git) version of Ignis install <code class="docutils literal notranslate"><span class="pre">ignis-git</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>paru<span class="w"> </span>-S<span class="w"> </span>ignis-git
 </pre></div>
 </div>
 </section>
 <section id="nix">
 <h2>Nix<a class="headerlink" href="#nix" title="Link to this heading">#</a></h2>
+<p>maintainer: missing specific maintainers, the package is mostly maintained by free contributors (bugs are expected)</p>
+<dl class="simple">
+<dt>Contributors:</dt><dd><ul class="simple">
+<li><p>&#64;frdiener</p></li>
+<li><p>&#64;somokill</p></li>
+<li><p>&#64;ratson</p></li>
+<li><p>&#64;0x006E</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This will install the latest (git) version of Ignis.
+Please refer to the <a class="reference external" href="https://linkfrg.github.io/ignis/latest/index.html">latest documentation</a>.</p>
+</div>
 <p>Add Ignis to your flake's inputs:</p>
-<div class="highlight-nix notranslate"><div class="highlight"><pre><span></span>ignis<span class="o">.</span><span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;git+https://github.com/linkfrg/ignis?submodules=1&quot;</span><span class="p">;</span>
+<div class="highlight-nix notranslate"><div class="highlight"><pre><span></span>ignis<span class="o">.</span><span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;github:linkfrg/ignis&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Then add the following to <code class="docutils literal notranslate"><span class="pre">environment.systemPackages</span></code> or <code class="docutils literal notranslate"><span class="pre">home.packages</span></code>:</p>
 <div class="highlight-nix notranslate"><div class="highlight"><pre><span></span>inputs<span class="o">.</span>ignis<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>system<span class="si">}</span><span class="o">.</span>ignis
 </pre></div>
+</div>
+</section>
+<section id="pip">
+<h2>Pip<a class="headerlink" href="#pip" title="Link to this heading">#</a></h2>
+<p>Pip is the standard package manager for Python.
+You can install Ignis directly from the Git repository using Pip.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You can do this in a Python virtual environment.
+Create and activate one with the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate<span class="w">  </span><span class="c1"># for fish: . venv/bin/activate.fish</span>
+</pre></div>
+</div>
+</div>
+<p>To install the latest (Git) version of Ignis:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/linkfrg/ignis.git
+</pre></div>
+</div>
+<p>To install a specific version (e.g., <code class="docutils literal notranslate"><span class="pre">v0.5</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># replace &quot;TAG&quot; with the desired Git tag</span>
+pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/linkfrg/ignis.git@TAG
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For advanced usage, you can <a class="reference external" href="../dev/env.html">set up a development environment</a> and install Ignis in editable mode.
+This allows you to easily switch between commits, versions, branches, or pull requests using <cite>git</cite>, without having to reinstall Ignis.</p>
 </div>
 </section>
 <section id="building-from-source">
@@ -456,16 +515,15 @@
 <li><p>gtk4</p></li>
 <li><p>gtk4-layer-shell</p></li>
 <li><p>glib-mkenums (glib2-devel)</p></li>
-<li><p>pygobject</p></li>
+<li><p>pygobject &gt;= 3.50.0</p></li>
 <li><p>pycairo</p></li>
 <li><p>python-click</p></li>
 <li><p>python-loguru</p></li>
-<li><p>python-requests</p></li>
 <li><p>libpulse (if using PipeWire, install <code class="docutils literal notranslate"><span class="pre">pipewire-pulse</span></code>)</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/linkfrg/ignis.git
 <span class="nb">cd</span><span class="w"> </span>ignis
-meson<span class="w"> </span>setup<span class="w"> </span>build<span class="w"> </span>--prefix<span class="o">=</span>/usr<span class="w"> </span>--libdir<span class="w"> </span><span class="s2">&quot;lib/ignis&quot;</span>
+meson<span class="w"> </span>setup<span class="w"> </span>build<span class="w"> </span>--prefix<span class="o">=</span>/usr
 meson<span class="w"> </span>compile<span class="w"> </span>-C<span class="w"> </span>build
 meson<span class="w"> </span>install<span class="w"> </span>-C<span class="w"> </span>build
 </pre></div>
@@ -526,8 +584,9 @@ meson<span class="w"> </span>install<span class="w"> </span>-C<span class="w"> <
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arch-linux">Arch linux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arch-linux">Arch Linux</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nix">Nix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip">Pip</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-from-source">Building from source</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running">Running</a></li>
 </ul>
@@ -550,13 +609,13 @@ meson<span class="w"> </span>install<span class="w"> </span>-C<span class="w"> <
 </div>
 
   <div class="sidebar-secondary-item">
-
-  <div class="tocsection sourcelink">
-    <a href="../_sources/user/installation.rst.txt">
-      <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-  </div>
-</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/user/installation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
 
 </div></div>
               
@@ -571,8 +630,8 @@ meson<span class="w"> </span>install<span class="w"> </span>-C<span class="w"> <
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -592,7 +651,7 @@ meson<span class="w"> </span>install<span class="w"> </span>-C<span class="w"> <
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.0.
     <br/>
   </p>
 </div>
@@ -605,7 +664,8 @@ meson<span class="w"> </span>install<span class="w"> </span>-C<span class="w"> <
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
 </p></div>
       
     </div>
