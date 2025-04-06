@@ -367,6 +367,7 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="toplevel.html">Toplevel package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="app.html">Application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gobject.html">GObject</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variable.html">Variable</a></li>
@@ -378,7 +379,9 @@
 <li class="toctree-l1"><a class="reference internal" href="dbus_menu.html">D-Bus menu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="base_widget.html">BaseWidget</a></li>
 <li class="toctree-l1"><a class="reference internal" href="base_service.html">BaseService</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deprecation.html">Deprecation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="connection_manager.html">Connection Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu_model.html">Menu Model</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="widgets/index.html">Widgets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="widgets/Arrow.html">Arrow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="widgets/ArrowButton.html">ArrowButton</a></li>
@@ -399,7 +402,6 @@
 <li class="toctree-l2"><a class="reference internal" href="widgets/Label.html">Label</a></li>
 <li class="toctree-l2"><a class="reference internal" href="widgets/ListBox.html">ListBox</a></li>
 <li class="toctree-l2"><a class="reference internal" href="widgets/ListBoxRow.html">ListBoxRow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="widgets/MenuItem.html">MenuItem</a></li>
 <li class="toctree-l2"><a class="reference internal" href="widgets/Overlay.html">Overlay</a></li>
 <li class="toctree-l2"><a class="reference internal" href="widgets/Picture.html">Picture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="widgets/PopoverMenu.html">PopoverMenu</a></li>
@@ -516,7 +518,7 @@
 <h1>Options<a class="headerlink" href="#options" title="Link to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="ignis.options.Options">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ignis.options.</span></span><span class="sig-name descname"><span class="pre">Options</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignis.options.Options" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ignis.options.</span></span><span class="sig-name descname"><span class="pre">Options</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignis.options.Options" title="Link to this definition">#</a></dt>
 <dd><p>Options for Ignis.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -539,6 +541,12 @@ use an initialized instance that starts with a lowercase letter.</p>
 </dd>
 </dl>
 <p>You can use classes (not instances of them) to obtain default values of options.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If the option is of type <a class="reference internal" href="options_manager.html#ignis.options_manager.TrackedList" title="ignis.options_manager.TrackedList"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrackedList</span></code></a>, it means that it is regular Python list.
+But you can call <code class="docutils literal notranslate"><span class="pre">.append()</span></code>, <code class="docutils literal notranslate"><span class="pre">.remove()</span></code>, <code class="docutils literal notranslate"><span class="pre">.insert()</span></code>, etc., and the changes will be applied!</p>
+</div>
+<p>The options file is located at <a class="reference internal" href="toplevel.html#ignis.DATA_DIR" title="ignis.DATA_DIR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ignis.DATA_DIR</span></code></a>/options.json (<code class="docutils literal notranslate"><span class="pre">$XDG_DATA_HOME/ignis/options.json</span></code>).</p>
 <p>Example usage:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ignis.options</span><span class="w"> </span><span class="kn">import</span> <span class="n">options</span>
 
@@ -560,7 +568,7 @@ use an initialized instance that starts with a lowercase letter.</p>
 </div>
 <dl class="py class">
 <dt class="sig sig-object py" id="ignis.options.Options.Notifications">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Notifications</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignis.options.Options.Notifications" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Notifications</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignis.options.Options.Notifications" title="Link to this definition">#</a></dt>
 <dd><p>Options for the <a class="reference internal" href="services/notifications.html#ignis.services.notifications.NotificationService" title="ignis.services.notifications.NotificationService"><code class="xref py py-class docutils literal notranslate"><span class="pre">NotificationService</span></code></a>.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ignis.options.Options.Notifications.dnd">
@@ -587,7 +595,7 @@ and all new <a class="reference internal" href="services/notifications.html#igni
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ignis.options.Options.Recorder">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Recorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignis.options.Options.Recorder" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Recorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignis.options.Options.Recorder" title="Link to this definition">#</a></dt>
 <dd><p>Options for the <a class="reference internal" href="services/recorder.html#ignis.services.recorder.RecorderService" title="ignis.services.recorder.RecorderService"><code class="xref py py-class docutils literal notranslate"><span class="pre">RecorderService</span></code></a>.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ignis.options.Options.Recorder.bitrate">
@@ -611,20 +619,19 @@ and all new <a class="reference internal" href="services/notifications.html#igni
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ignis.options.Options.Applications">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Applications</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignis.options.Options.Applications" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Applications</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignis.options.Options.Applications" title="Link to this definition">#</a></dt>
 <dd><p>Options for the <a class="reference internal" href="services/applications.html#ignis.services.applications.ApplicationsService" title="ignis.services.applications.ApplicationsService"><code class="xref py py-class docutils literal notranslate"><span class="pre">ApplicationsService</span></code></a>.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ignis.options.Options.Applications.pinned_apps">
-<span class="sig-name descname"><span class="pre">pinned_apps</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a><span class="pre">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a><span class="pre">]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#ignis.options.Options.Applications.pinned_apps" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">pinned_apps</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="options_manager.html#ignis.options_manager.TrackedList" title="ignis.options_manager.TrackedList"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrackedList</span></code></a><span class="pre">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a><span class="pre">]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#ignis.options.Options.Applications.pinned_apps" title="Link to this definition">#</a></dt>
 <dd><p>A list of the pinned applications desktop files, e.g. <code class="docutils literal notranslate"><span class="pre">&quot;firefox.desktop&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;code.desktop&quot;</span></code>.</p>
-<p>You shouldn't modify this option, use Application Service methods instead.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ignis.options.Options.Wallpaper">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Wallpaper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignis.options.Options.Wallpaper" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Wallpaper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignis.options.Options.Wallpaper" title="Link to this definition">#</a></dt>
 <dd><p>Options for the <a class="reference internal" href="services/wallpaper.html#ignis.services.wallpaper.WallpaperService" title="ignis.services.wallpaper.WallpaperService"><code class="xref py py-class docutils literal notranslate"><span class="pre">WallpaperService</span></code></a>.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ignis.options.Options.Wallpaper.wallpaper_path">

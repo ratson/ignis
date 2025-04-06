@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>BaseWidget &#8212; Ignis documentation</title>
+    <title>Menu Model &#8212; Ignis documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/base_widget';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/menu_model';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://linkfrg.github.io/ignis/latest/_static/switcher.json';
@@ -57,8 +57,8 @@
         </script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="BaseService" href="base_service.html" />
-    <link rel="prev" title="D-Bus menu" href="dbus_menu.html" />
+    <link rel="next" title="Widgets" href="widgets/index.html" />
+    <link rel="prev" title="Connection Manager" href="connection_manager.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -377,11 +377,11 @@
 <li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dbus.html">D-Bus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dbus_menu.html">D-Bus menu</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">BaseWidget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_widget.html">BaseWidget</a></li>
 <li class="toctree-l1"><a class="reference internal" href="base_service.html">BaseService</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deprecation.html">Deprecation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="connection_manager.html">Connection Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="menu_model.html">Menu Model</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Menu Model</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="widgets/index.html">Widgets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="widgets/Arrow.html">Arrow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="widgets/ArrowButton.html">ArrowButton</a></li>
@@ -497,7 +497,7 @@
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">API reference</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">BaseWidget</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Menu Model</span></li>
   </ul>
 </nav>
 </div>
@@ -514,54 +514,143 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="basewidget">
-<h1>BaseWidget<a class="headerlink" href="#basewidget" title="Link to this heading">#</a></h1>
+  <section id="menu-model">
+<h1>Menu Model<a class="headerlink" href="#menu-model" title="Link to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="ignis.base_widget.BaseWidget">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ignis.base_widget.</span></span><span class="sig-name descname"><span class="pre">BaseWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setup</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.13)"><span class="pre">Callable</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style_priority</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.13)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'application'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'fallback'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'settings'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'theme'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'user'</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vexpand</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hexpand</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visible</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignis.base_widget.BaseWidget" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="gobject.html#ignis.gobject.IgnisGObject" title="ignis.gobject.IgnisGObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">IgnisGObject</span></code></a>.</p>
-<p>The base class for all widgets.
-Provides <code class="docutils literal notranslate"><span class="pre">style</span></code> property and allows overriding enums.</p>
-<dl class="py gproperty">
-<dt class="sig sig-object py" id="ignis.base_widget.BaseWidget.style_priority">
-<em class="property"><span class="pre">gproperty</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">style_priority</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.13)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'application'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'fallback'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'settings'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'theme'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'user'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ignis.base_widget.BaseWidget.style_priority" title="Link to this definition">#</a></dt>
-<dd><ul class="simple">
-<li><p>read-write</p></li>
-</ul>
-<p>The style priority for this widget.
-Overrides <a class="reference internal" href="app.html#ignis.app.IgnisApp.widgets_style_priority" title="ignis.app.IgnisApp.widgets_style_priority"><code class="xref py py-attr docutils literal notranslate"><span class="pre">widgets_style_priority</span></code></a>.</p>
-<p>More info about style priorities: <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-4.0/constants.html#Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION" title="(in Gtk 4.0 v4.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION</span></code></a>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Changing this property won't affect an already applied style!</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">some_widget</span> <span class="o">=</span> <span class="n">WIDGET_NAME</span><span class="p">(</span>
-    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;some style&quot;</span><span class="p">,</span>
-    <span class="n">style_priority</span><span class="o">=</span><span class="s2">&quot;user&quot;</span>
-<span class="p">)</span>
-<span class="n">some_widget</span><span class="o">.</span><span class="n">style_priority</span> <span class="o">=</span> <span class="s2">&quot;application&quot;</span>  <span class="c1"># nothing change for current style</span>
-<span class="n">some_widget</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;new style&quot;</span>  <span class="c1"># this style will have &quot;application&quot; priority</span>
-</pre></div>
-</div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ignis.base_widget.BaseWidget.override_enum">
-<span class="sig-name descname"><span class="pre">override_enum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">enum</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#ignis.base_widget.BaseWidget.override_enum" title="Link to this definition">#</a></dt>
-<dd><p>Override an enum.</p>
+<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ignis.menu_model.</span></span><span class="sig-name descname"><span class="pre">IgnisMenuModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ignis.menu_model.IgnisMenuItem" title="ignis.menu_model.IgnisMenuItem"><span class="pre">IgnisMenuItem</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#ignis.menu_model.IgnisMenuModel" title="ignis.menu_model.IgnisMenuModel"><span class="pre">IgnisMenuModel</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#ignis.menu_model.IgnisMenuSeparator" title="ignis.menu_model.IgnisMenuSeparator"><span class="pre">IgnisMenuSeparator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignis.menu_model.IgnisMenuModel" title="Link to this definition">#</a></dt>
+<dd><p>A helper class that provides a convenient way to construct a <a class="reference external" href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/Menu.html#Gio.Menu" title="(in Gio 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gio.Menu</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>property_name</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) -- The name of the property to override.</p></li>
-<li><p><strong>enum</strong> (<code class="docutils literal notranslate"><span class="pre">GObject.GEnum</span></code>) -- An enum that accepts the property to be overridden. For example, for <code class="docutils literal notranslate"><span class="pre">valign</span></code> it will be <code class="docutils literal notranslate"><span class="pre">Gtk.Align</span></code>.</p></li>
+<li><p><strong>*args</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#ignis.menu_model.IgnisMenuItem" title="ignis.menu_model.IgnisMenuItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">IgnisMenuItem</span></code></a> | <a class="reference internal" href="#ignis.menu_model.IgnisMenuModel" title="ignis.menu_model.IgnisMenuModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">IgnisMenuModel</span></code></a> | <a class="reference internal" href="#ignis.menu_model.IgnisMenuSeparator" title="ignis.menu_model.IgnisMenuSeparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">IgnisMenuSeparator</span></code></a></span>) -- Items to add.</p></li>
+<li><p><strong>label</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) -- The label of the submenu. Only works if this model passed as an item of the parent model. Must be provided only as a <strong>keyword</strong> argument.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
-</dd>
 </dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ignis.menu_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">IgnisMenuModel</span><span class="p">,</span> <span class="n">IgnisMenuItem</span><span class="p">,</span> <span class="n">IgnisMenuSeparator</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">IgnisMenuModel</span><span class="p">(</span>
+    <span class="n">IgnisMenuItem</span><span class="p">(</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Item 1&quot;</span><span class="p">,</span>
+        <span class="n">on_activate</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;item 1 activated!&quot;</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="n">IgnisMenuItem</span><span class="p">(</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;This is disabled item&quot;</span><span class="p">,</span>
+        <span class="n">enabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">on_activate</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;you will not see this message in terminal hehehehehe&quot;</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+    <span class="n">IgnisMenuModel</span><span class="p">(</span>
+        <span class="o">*</span><span class="p">(</span>  <span class="c1"># unpacking because items must be passed as *args</span>
+            <span class="n">IgnisMenuItem</span><span class="p">(</span>
+                <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
+                <span class="n">on_activate</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Clicked on item </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="p">),</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Submenu&quot;</span><span class="p">,</span>  <span class="c1"># pass label as keyword argument</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+
+<span class="c1"># Access built Gio.Menu</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">gmenu</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py gproperty">
+<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuModel.items">
+<em class="property"><span class="pre">gproperty</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">items</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ignis.menu_model.IgnisMenuItem" title="ignis.menu_model.IgnisMenuItem"><span class="pre">IgnisMenuItem</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#ignis.menu_model.IgnisMenuModel" title="ignis.menu_model.IgnisMenuModel"><span class="pre">IgnisMenuModel</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#ignis.menu_model.IgnisMenuSeparator" title="ignis.menu_model.IgnisMenuSeparator"><span class="pre">IgnisMenuSeparator</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ignis.menu_model.IgnisMenuModel.items" title="Link to this definition">#</a></dt>
+<dd><ul class="simple">
+<li><p>read-write</p></li>
+</ul>
+<p>A list of items.</p>
 </dd></dl>
 
+<dl class="py gproperty">
+<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuModel.gmenu">
+<em class="property"><span class="pre">gproperty</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gmenu</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/Menu.html#Gio.Menu" title="(in Gio 2.0 v2.0)"><span class="pre">Gio.Menu</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#ignis.menu_model.IgnisMenuModel.gmenu" title="Link to this definition">#</a></dt>
+<dd><ul class="simple">
+<li><p>read-only</p></li>
+</ul>
+<p>The <cite>Gio.Menu</cite> built from the contents of <a class="reference internal" href="#ignis.menu_model.IgnisMenuModel.items" title="ignis.menu_model.IgnisMenuModel.items"><code class="xref py py-attr docutils literal notranslate"><span class="pre">items</span></code></a>, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if no items are present.</p>
+</dd></dl>
+
+<dl class="py gproperty">
+<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuModel.label">
+<em class="property"><span class="pre">gproperty</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#ignis.menu_model.IgnisMenuModel.label" title="Link to this definition">#</a></dt>
+<dd><ul class="simple">
+<li><p>read-only</p></li>
+</ul>
+<p>The label of the submenu. Only Works if this model passed as an item of the parent model.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuItem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ignis.menu_model.</span></span><span class="sig-name descname"><span class="pre">IgnisMenuItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">enabled</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_activate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.13)"><span class="pre">Callable</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignis.menu_model.IgnisMenuItem" title="Link to this definition">#</a></dt>
+<dd><p>A menu item.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) -- The label of item.</p></li>
+<li><p><strong>enabled</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span>, default: <code class="docutils literal notranslate"><span class="pre">True</span></code>) -- Whether the item is enabled. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the item cannot be selected.</p></li>
+<li><p><strong>on_activate</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Callable</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) -- The function to call when the user clicks on the item.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py gproperty">
+<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuItem.label">
+<em class="property"><span class="pre">gproperty</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#ignis.menu_model.IgnisMenuItem.label" title="Link to this definition">#</a></dt>
+<dd><ul class="simple">
+<li><p>read-only</p></li>
+</ul>
+<p>The label of item.</p>
+</dd></dl>
+
+<dl class="py gproperty">
+<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuItem.uniq_name">
+<em class="property"><span class="pre">gproperty</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">uniq_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#ignis.menu_model.IgnisMenuItem.uniq_name" title="Link to this definition">#</a></dt>
+<dd><ul class="simple">
+<li><p>read-only</p></li>
+</ul>
+<p>The unique name of the <code class="docutils literal notranslate"><span class="pre">Gio.Action</span></code>.</p>
+</dd></dl>
+
+<dl class="py gproperty">
+<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuItem.action_name">
+<em class="property"><span class="pre">gproperty</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">action_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#ignis.menu_model.IgnisMenuItem.action_name" title="Link to this definition">#</a></dt>
+<dd><ul class="simple">
+<li><p>read-only</p></li>
+</ul>
+<p>The full action name (<code class="docutils literal notranslate"><span class="pre">app.UNIQ_NAME</span></code>).</p>
+</dd></dl>
+
+<dl class="py gproperty">
+<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuItem.enabled">
+<em class="property"><span class="pre">gproperty</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enabled</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="headerlink" href="#ignis.menu_model.IgnisMenuItem.enabled" title="Link to this definition">#</a></dt>
+<dd><ul class="simple">
+<li><p>read-only</p></li>
+</ul>
+<p>Whether the item is enabled. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the item cannot be selected.</p>
+</dd></dl>
+
+<dl class="py gproperty">
+<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuItem.on_activate">
+<em class="property"><span class="pre">gproperty</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">on_activate</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.13)"><span class="pre">Callable</span></a></em><a class="headerlink" href="#ignis.menu_model.IgnisMenuItem.on_activate" title="Link to this definition">#</a></dt>
+<dd><ul class="simple">
+<li><p>read-write</p></li>
+</ul>
+<p>The function to call when the user clicks on the item.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuSeparator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ignis.menu_model.</span></span><span class="sig-name descname"><span class="pre">IgnisMenuSeparator</span></span><a class="headerlink" href="#ignis.menu_model.IgnisMenuSeparator" title="Link to this definition">#</a></dt>
+<dd><p>A simple object representing a menu separator.</p>
 </dd></dl>
 
 </section>
@@ -577,20 +666,20 @@ Overrides <a class="reference internal" href="app.html#ignis.app.IgnisApp.widget
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="dbus_menu.html"
+       href="connection_manager.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">D-Bus menu</p>
+        <p class="prev-next-title">Connection Manager</p>
       </div>
     </a>
     <a class="right-next"
-       href="base_service.html"
+       href="widgets/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">BaseService</p>
+        <p class="prev-next-title">Widgets</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -613,11 +702,21 @@ Overrides <a class="reference internal" href="app.html#ignis.app.IgnisApp.widget
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.base_widget.BaseWidget"><code class="docutils literal notranslate"><span class="pre">BaseWidget</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.base_widget.BaseWidget.style_priority"><code class="docutils literal notranslate"><span class="pre">BaseWidget.style_priority</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.base_widget.BaseWidget.override_enum"><code class="docutils literal notranslate"><span class="pre">BaseWidget.override_enum()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuModel"><code class="docutils literal notranslate"><span class="pre">IgnisMenuModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuModel.items"><code class="docutils literal notranslate"><span class="pre">IgnisMenuModel.items</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuModel.gmenu"><code class="docutils literal notranslate"><span class="pre">IgnisMenuModel.gmenu</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuModel.label"><code class="docutils literal notranslate"><span class="pre">IgnisMenuModel.label</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuItem"><code class="docutils literal notranslate"><span class="pre">IgnisMenuItem</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuItem.label"><code class="docutils literal notranslate"><span class="pre">IgnisMenuItem.label</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuItem.uniq_name"><code class="docutils literal notranslate"><span class="pre">IgnisMenuItem.uniq_name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuItem.action_name"><code class="docutils literal notranslate"><span class="pre">IgnisMenuItem.action_name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuItem.enabled"><code class="docutils literal notranslate"><span class="pre">IgnisMenuItem.enabled</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuItem.on_activate"><code class="docutils literal notranslate"><span class="pre">IgnisMenuItem.on_activate</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuSeparator"><code class="docutils literal notranslate"><span class="pre">IgnisMenuSeparator</span></code></a></li>
 </ul>
   </nav></div>
 
@@ -625,7 +724,7 @@ Overrides <a class="reference internal" href="app.html#ignis.app.IgnisApp.widget
 
   
   <div class="tocsection editthispage">
-    <a href="https://github.com/linkfrg/ignis/edit/main/docs/api/base_widget.rst">
+    <a href="https://github.com/linkfrg/ignis/edit/main/docs/api/menu_model.rst">
       <i class="fa-solid fa-pencil"></i>
       
       
@@ -641,7 +740,7 @@ Overrides <a class="reference internal" href="app.html#ignis.app.IgnisApp.widget
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/api/base_widget.rst.txt"
+      <li><a href="../_sources/api/menu_model.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div></div>
